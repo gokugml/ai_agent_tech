@@ -1,0 +1,583 @@
+{
+  "test_info": {
+    "user_id": "test_user_2024",
+    "start_time": "2025-08-25T16:23:03.866677",
+    "framework_versions": {
+      "memu": "test_version",
+      "memobase": "test_version"
+    },
+    "end_time": "2025-08-25T16:23:04.785978"
+  },
+  "style_learning_tests": {
+    "concise_preference": {
+      "scenario_id": "concise_preference",
+      "memu_results": {
+        "responses": [
+          "根据您的八字分析，我看到...详细内容详细内容详细内容",
+          "根据您的八字分析，我看到...详细内容详细内容",
+          "根据您的八字分析，我看到...详细内容",
+          "根据您的八字分析，我看到...详细内容"
+        ],
+        "scores": {
+          "adaptation_speed": 0.7742857142857142,
+          "final_match": 0.5,
+          "consistency": 0.989,
+          "overall": 0.7544285714285714
+        },
+        "learned_style": {}
+      },
+      "memobase_results": {
+        "responses": [
+          "根据您的八字分析，我看到...详细内容详细内容",
+          "根据您的八字分析，我看到...详细内容",
+          "根据您的八字分析，我看到...详细内容",
+          "根据您的八字分析，我看到...详细内容"
+        ],
+        "scores": {
+          "adaptation_speed": 0.7257142857142858,
+          "final_match": 0.5,
+          "consistency": 0.997,
+          "overall": 0.740904761904762
+        },
+        "learned_style": {}
+      },
+      "comparison": {
+        "adaptation_speed": {
+          "memu": 0.7742857142857142,
+          "memobase": 0.7257142857142858,
+          "winner": "memu",
+          "difference": 0.04857142857142849
+        },
+        "final_match": {
+          "memu": 0.5,
+          "memobase": 0.5,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "consistency": {
+          "memu": 0.989,
+          "memobase": 0.997,
+          "winner": "memobase",
+          "difference": 0.008000000000000007
+        },
+        "overall": {
+          "memu": 0.7544285714285714,
+          "memobase": 0.740904761904762,
+          "winner": "memu",
+          "difference": 0.013523809523809494
+        }
+      }
+    },
+    "detailed_preference": {
+      "scenario_id": "detailed_preference",
+      "memu_results": {
+        "responses": [
+          "您的运势分析如下：详细解释详细解释",
+          "您的运势分析如下：详细解释详细解释详细解释",
+          "您的运势分析如下：详细解释详细解释详细解释详细解释",
+          "您的运势分析如下：详细解释详细解释详细解释详细解释详细解释"
+        ],
+        "scores": {
+          "adaptation_speed": 0.2592288961038961,
+          "final_match": 0.0,
+          "consistency": 0.98,
+          "overall": 0.41307629870129875
+        },
+        "learned_style": {}
+      },
+      "memobase_results": {
+        "responses": [
+          "您的运势分析如下：详细解释",
+          "您的运势分析如下：详细解释详细解释",
+          "您的运势分析如下：详细解释详细解释详细解释",
+          "您的运势分析如下：详细解释详细解释详细解释详细解释"
+        ],
+        "scores": {
+          "adaptation_speed": 0.2104951298701299,
+          "final_match": 0.0,
+          "consistency": 0.98,
+          "overall": 0.39683170995670997
+        },
+        "learned_style": {}
+      },
+      "comparison": {
+        "adaptation_speed": {
+          "memu": 0.2592288961038961,
+          "memobase": 0.2104951298701299,
+          "winner": "memu",
+          "difference": 0.04873376623376621
+        },
+        "final_match": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "consistency": {
+          "memu": 0.98,
+          "memobase": 0.98,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "overall": {
+          "memu": 0.41307629870129875,
+          "memobase": 0.39683170995670997,
+          "winner": "memu",
+          "difference": 0.016244588744588784
+        }
+      }
+    },
+    "interactive_preference": {
+      "scenario_id": "interactive_preference",
+      "memu_results": {
+        "responses": [
+          "关于您的问题：这是第1轮的回复，我理解您的需求。",
+          "关于您的问题：这是第2轮的回复，我理解您的需求。",
+          "关于您的问题：这是第3轮的回复，我理解您的需求。",
+          "关于您的问题：这是第4轮的回复，我理解您的需求。"
+        ],
+        "scores": {
+          "adaptation_speed": 0.0,
+          "final_match": 0.0,
+          "consistency": 1.0,
+          "overall": 0.3333333333333333
+        },
+        "learned_style": {}
+      },
+      "memobase_results": {
+        "responses": [
+          "关于您的问题：第1轮回复，感谢您的信任。",
+          "关于您的问题：第2轮回复，感谢您的信任。",
+          "关于您的问题：第3轮回复，感谢您的信任。",
+          "关于您的问题：第4轮回复，感谢您的信任。"
+        ],
+        "scores": {
+          "adaptation_speed": 0.0,
+          "final_match": 0.0,
+          "consistency": 1.0,
+          "overall": 0.3333333333333333
+        },
+        "learned_style": {}
+      },
+      "comparison": {
+        "adaptation_speed": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "final_match": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "consistency": {
+          "memu": 1.0,
+          "memobase": 1.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "overall": {
+          "memu": 0.3333333333333333,
+          "memobase": 0.3333333333333333,
+          "winner": "tie",
+          "difference": 0.0
+        }
+      }
+    }
+  },
+  "accuracy_boost_tests": {
+    "feedback_learning": {
+      "scenario_id": "feedback_learning",
+      "memu_results": {
+        "initial_predictions": [
+          {
+            "topic": "career",
+            "prediction": "你在2023年下半年会有职业变动，可能是升职或换工作",
+            "confidence": 0.7,
+            "time_frame": "2023年7-12月"
+          },
+          {
+            "topic": "finance",
+            "prediction": "今年财运一般，需要谨慎投资",
+            "confidence": 0.6,
+            "time_frame": "2023年全年"
+          },
+          {
+            "topic": "health",
+            "prediction": "注意肠胃健康，秋天要特别小心",
+            "confidence": 0.5,
+            "time_frame": "2023年秋季"
+          }
+        ],
+        "adjusted_predictions": [
+          {
+            "topic": "career",
+            "prediction": "你在2023年下半年会有职业变动，可能是升职或换工作 （基于历史验证，此类预测准确性较高）",
+            "confidence": 0.8999999999999999,
+            "time_frame": "2023年7-12月"
+          },
+          {
+            "topic": "finance",
+            "prediction": "今年财运一般，需要谨慎投资 （需要更多信息确认，建议谨慎对待）",
+            "confidence": 0.3,
+            "time_frame": "2023年全年"
+          },
+          {
+            "topic": "health",
+            "prediction": "注意肠胃健康，秋天要特别小心 （基于历史验证，此类预测准确性较高）",
+            "confidence": 0.7,
+            "time_frame": "2023年秋季"
+          }
+        ],
+        "scores": {
+          "feedback_integration": 1.0,
+          "confidence_adjustment": 0.66,
+          "specificity_improvement": 0.8,
+          "pattern_learning": 0.6666666666666666,
+          "overall": 0.7816666666666667
+        }
+      },
+      "memobase_results": {
+        "initial_predictions": [
+          {
+            "topic": "career",
+            "prediction": "你在2023年下半年会有职业变动，可能是升职或换工作",
+            "confidence": 0.7,
+            "time_frame": "2023年7-12月"
+          },
+          {
+            "topic": "finance",
+            "prediction": "今年财运一般，需要谨慎投资",
+            "confidence": 0.6,
+            "time_frame": "2023年全年"
+          },
+          {
+            "topic": "health",
+            "prediction": "注意肠胃健康，秋天要特别小心",
+            "confidence": 0.5,
+            "time_frame": "2023年秋季"
+          }
+        ],
+        "adjusted_predictions": [
+          {
+            "topic": "career",
+            "prediction": "你在2023年下半年会有职业变动，可能是升职或换工作 （基于历史验证，此类预测准确性较高）",
+            "confidence": 0.95,
+            "time_frame": "2023年7-12月"
+          },
+          {
+            "topic": "finance",
+            "prediction": "今年财运一般，需要谨慎投资 （需要更多信息确认，建议谨慎对待）",
+            "confidence": 0.3,
+            "time_frame": "2023年全年"
+          },
+          {
+            "topic": "health",
+            "prediction": "注意肠胃健康，秋天要特别小心 （基于历史验证，此类预测准确性较高）",
+            "confidence": 0.75,
+            "time_frame": "2023年秋季"
+          }
+        ],
+        "scores": {
+          "feedback_integration": 1.0,
+          "confidence_adjustment": 0.99,
+          "specificity_improvement": 0.8,
+          "pattern_learning": 0.6666666666666666,
+          "overall": 0.8641666666666666
+        }
+      },
+      "comparison": {
+        "feedback_integration": {
+          "memu": 1.0,
+          "memobase": 1.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "confidence_adjustment": {
+          "memu": 0.66,
+          "memobase": 0.99,
+          "winner": "memobase",
+          "difference": 0.32999999999999996
+        },
+        "specificity_improvement": {
+          "memu": 0.8,
+          "memobase": 0.8,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "pattern_learning": {
+          "memu": 0.6666666666666666,
+          "memobase": 0.6666666666666666,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "overall": {
+          "memu": 0.7816666666666667,
+          "memobase": 0.8641666666666666,
+          "winner": "memobase",
+          "difference": 0.0824999999999999
+        }
+      }
+    },
+    "pattern_recognition": {
+      "scenario_id": "pattern_recognition",
+      "memu_results": {},
+      "memobase_results": {},
+      "comparison": {}
+    }
+  },
+  "info_extraction_tests": {
+    "life_changes_extraction": {
+      "scenario_id": "life_changes_extraction",
+      "memu_results": {
+        "extractions": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "scores": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "temporal_accuracy": 0.0,
+          "completeness": 0.0,
+          "overall": 0.0
+        }
+      },
+      "memobase_results": {
+        "extractions": [
+          {
+            "life_changes": [
+              {
+                "category": "job_change",
+                "keyword": "新工作",
+                "confidence": 0.8
+              }
+            ],
+            "time_references": [
+              "最近"
+            ],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [
+              {
+                "category": "relationship",
+                "keyword": "分手",
+                "confidence": 0.8
+              }
+            ],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          }
+        ],
+        "scores": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "temporal_accuracy": 0.0,
+          "completeness": 0.0,
+          "overall": 0.0
+        }
+      },
+      "comparison": {
+        "recall": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "precision": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "temporal_accuracy": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "completeness": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "overall": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        }
+      }
+    },
+    "temporal_information_extraction": {
+      "scenario_id": "temporal_information_extraction",
+      "memu_results": {
+        "extractions": [
+          {},
+          {},
+          {}
+        ],
+        "scores": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "temporal_accuracy": 0.0,
+          "completeness": 0.0,
+          "overall": 0.0
+        }
+      },
+      "memobase_results": {
+        "extractions": [
+          {
+            "life_changes": [],
+            "time_references": [
+              "去年"
+            ],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [
+              {
+                "category": "financial",
+                "keyword": "投资",
+                "confidence": 0.8
+              }
+            ],
+            "time_references": [
+              "明年"
+            ],
+            "emotional_states": [],
+            "verification_feedback": []
+          },
+          {
+            "life_changes": [],
+            "time_references": [],
+            "emotional_states": [],
+            "verification_feedback": []
+          }
+        ],
+        "scores": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "temporal_accuracy": 0.6666666666666666,
+          "completeness": 0.0,
+          "overall": 0.0
+        }
+      },
+      "comparison": {
+        "recall": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "precision": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "temporal_accuracy": {
+          "memu": 0.0,
+          "memobase": 0.6666666666666666,
+          "winner": "memobase",
+          "difference": 0.6666666666666666
+        },
+        "completeness": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        },
+        "overall": {
+          "memu": 0.0,
+          "memobase": 0.0,
+          "winner": "tie",
+          "difference": 0.0
+        }
+      }
+    }
+  },
+  "overall_comparison": {
+    "category_winners": {
+      "style_learning_tests": "memu",
+      "accuracy_boost_tests": "memobase",
+      "info_extraction_tests": "tie"
+    },
+    "overall_winner": "memu",
+    "strength_analysis": {
+      "memu": {
+        "wins": 2,
+        "strong_areas": [
+          "聊天风格学习"
+        ],
+        "characteristics": [
+          "结构化存储",
+          "简单直接",
+          "快速响应"
+        ]
+      },
+      "memobase": {
+        "wins": 1,
+        "strong_areas": [
+          "算命准确性提升"
+        ],
+        "characteristics": [
+          "语义搜索",
+          "复杂查询",
+          "关联分析"
+        ]
+      }
+    },
+    "recommendations": {}
+  },
+  "performance_metrics": {
+    "memu": {
+      "framework": "MemU (真实)",
+      "total_conversations": 12,
+      "total_memories": 0,
+      "api_calls": 0,
+      "storage_size_kb": 0.0,
+      "runtime_seconds": 0.9606
+    },
+    "memobase": {
+      "framework": "Memobase (真实)",
+      "total_conversations": 12,
+      "user_connected": true,
+      "runtime_seconds": 0.928826
+    }
+  }
+}

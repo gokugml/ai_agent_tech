@@ -1,0 +1,373 @@
+{
+  "framework": "memobase",
+  "scenario": "practical_guidance",
+  "input_count": 2,
+  "start_time": "2025-08-26T11:14:34.744536",
+  "test_results": {
+    "responses": [
+      {
+        "user_input": "我想知道什么时候换工作比较好（我是人力资源）",
+        "ai_response": "您好！作为一位从事人力资源工作的朋友，我能感受到您对职业发展的深思熟虑。\n\n从命理角度来看，人力资源工作属于\"人和\"之业，需要良好的人际关系和沟通能力。结合您实用主义和目标导向的性格，这确实是很适合的职业选择。\n\n关于换工作的最佳时机，我建议从以下几个维度考虑：\n\n**时间节点分析：**\n- **春季（3-5月）**：万物复苏，新的机会较多，是求职的传统旺季\n- **秋季（9-11月）**：收获季节，企业预算规划期，职位需求相对稳定\n\n**个人发展考量：**\n1. **技能积累期**：建议在当前岗位至少工作2-3年，充分掌握HR各模块经验\n2. **人脉建设**：利用您友善的性格优势，在行业内建立更广泛的联系网络\n3. **专业提升**：考虑获得相关资格证书，如人力资源管理师等\n\n**具体建议：**\n鉴于您目前还关注家庭矛盾问题，建议先处理好家庭关系，稳定后端再考虑职业变动。毕竟家和万事兴，内心平静才能在职场上发挥最佳状态。\n\n您目前在HR领域工作多久了？具体想往哪个方向发展呢？",
+        "response_time": 10.64436936378479,
+        "timestamp": "2025-08-26T11:14:45.416489"
+      },
+      {
+        "user_input": "请告诉我如何改善我的财运",
+        "ai_response": "根据您从事人力资源工作的情况，我来为您分析财运改善之道。\n\n**职业财运分析：**\nHR行业属于\"土\"性工作，主管人事调配，具有稳定的财运基础。您实用主义和效率优先的特质，很适合在这个领域积累财富。\n\n**财运提升建议：**\n\n**1. 专业深耕（根本之道）**\n- 深化HR专业技能，向HRBP、薪酬设计等高价值模块发展\n- 考取高级人力资源管理师证书，提升市场价值\n- 学习数据分析，成为懂业务的HR专家\n\n**2. 人脉经营（贵人助力）**\n- 利用您友善的性格，在行业内建立广泛人脉\n- 参加HR沙龙、行业会议，扩展职业圈子\n- 维护与猎头的良好关系\n\n**3. 理财规划（开源节流）**\n- 建立\"334\"理财结构：30%稳健投资、30%成长投资、40%生活开支\n- 考虑定投基金，符合您务实的性格\n- 学习财务知识，为将来创业或投资做准备\n\n**4. 时机把握**\n- 年底是HR跳槽涨薪的最佳时期\n- 关注公司上市、并购等机会，争取股权激励\n\n**风水建议：**\n办公桌左侧放置绿植（招财），保持桌面整洁（聚气）。\n\n您目前的薪资水平如何？有没有考虑过向管理层发展或者自主创业？",
+        "response_time": 11.520681858062744,
+        "timestamp": "2025-08-26T11:14:56.937461"
+      }
+    ],
+    "quality_evaluation": {
+      "overall_score": 0.42052825552825557,
+      "conversation_flow_score": 0.0,
+      "memory_utilization_score": 0.25,
+      "user_satisfaction_estimate": 0.565776978597986
+    },
+    "conversation_analysis": {
+      "conversation_id": "session_memobase_20250826_111434_1cae24c3",
+      "basic_metrics": {
+        "total_interactions": 2,
+        "conversation_duration_seconds": 11.520972,
+        "avg_response_time": 11.082525610923767,
+        "total_response_time": 22.165051221847534,
+        "avg_interaction_interval": 11.520972,
+        "token_usage": {
+          "total_input_tokens": 1113,
+          "total_output_tokens": 946,
+          "total_tokens": 2059,
+          "avg_input_tokens": 556.5,
+          "avg_output_tokens": 473.0
+        },
+        "content_metrics": {
+          "avg_response_length": 471,
+          "avg_user_input_length": 17,
+          "response_length_variance": 1250,
+          "max_response_length": 496,
+          "min_response_length": 446
+        }
+      },
+      "topic_analysis": {
+        "topic_distribution": {
+          "事业发展": 0.3,
+          "学习成长": 0.2,
+          "人际关系": 0.2,
+          "家庭生活": 0.1,
+          "财富运势": 0.2
+        },
+        "main_topics": [
+          [
+            "事业发展",
+            0.3
+          ],
+          [
+            "学习成长",
+            0.2
+          ],
+          [
+            "人际关系",
+            0.2
+          ]
+        ],
+        "topic_transitions": [
+          {
+            "from_topics": [
+              "事业发展"
+            ],
+            "to_topics": [
+              "财富运势"
+            ],
+            "interaction_index": 1
+          }
+        ],
+        "topic_diversity": 5,
+        "topic_focus_score": 0.3,
+        "conversation_coherence": 0.0
+      },
+      "emotion_analysis": {
+        "emotion_distribution": {
+          "积极": 0.5,
+          "中性": 0.5
+        },
+        "emotion_progression": [
+          {
+            "interaction_index": 0,
+            "user_emotion": "积极",
+            "ai_emotion": "积极",
+            "timestamp": "2025-08-26T11:14:45.416489"
+          },
+          {
+            "interaction_index": 1,
+            "user_emotion": "中性",
+            "ai_emotion": "积极",
+            "timestamp": "2025-08-26T11:14:56.937461"
+          }
+        ],
+        "emotion_trend": {
+          "trend": "stable",
+          "confidence": 0.5
+        },
+        "dominant_emotion": "积极",
+        "emotional_stability": 0.0
+      },
+      "interaction_patterns": {
+        "pattern_distribution": {
+          "探索型": 1.0
+        },
+        "pattern_sequence": [
+          {
+            "interaction_index": 0,
+            "pattern": "探索型",
+            "user_input_length": 22,
+            "ai_response_length": 446
+          },
+          {
+            "interaction_index": 1,
+            "pattern": "探索型",
+            "user_input_length": 12,
+            "ai_response_length": 496
+          }
+        ],
+        "pattern_transitions": [],
+        "dominant_pattern": "探索型",
+        "pattern_consistency": 1.0
+      },
+      "memory_usage_analysis": {
+        "usage_statistics": {
+          "total_responses": 2,
+          "responses_with_memory": 1,
+          "avg_memory_context_size": 2,
+          "memory_utilization_rate": 0.5,
+          "memory_effectiveness_scores": [
+            0.0
+          ],
+          "avg_memory_effectiveness": 0.0
+        },
+        "memory_contexts": [
+          {
+            "response_id": "resp_session_memobase_20250826_111434_1cae24c3_0_1756178085",
+            "has_memory": false,
+            "context_size": 0,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111434_1cae24c3_1_1756178096",
+            "has_memory": true,
+            "context_size": 2,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          }
+        ],
+        "memory_trends": {
+          "trend": "insufficient_data"
+        }
+      },
+      "quality_progression": {
+        "quality_scores": [
+          {
+            "response_id": "resp_session_memobase_20250826_111434_1cae24c3_0_1756178085",
+            "quality_score": 0.6,
+            "response_time": 10.64436936378479,
+            "timestamp": "2025-08-26T11:14:45.416489"
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111434_1cae24c3_1_1756178096",
+            "quality_score": 0.7,
+            "response_time": 11.520681858062744,
+            "timestamp": "2025-08-26T11:14:56.937461"
+          }
+        ],
+        "quality_trend": {
+          "trend": "stable",
+          "confidence": 0.0
+        },
+        "response_time_trend": {
+          "trend": "stable",
+          "confidence": 0.0
+        },
+        "avg_quality": 0.6499999999999999,
+        "quality_variance": 0.0049999999999999975,
+        "best_quality_score": 0.7,
+        "worst_quality_score": 0.6
+      },
+      "user_behavior": {
+        "user_id": "session_memobase_20250826_111434_1cae24c3",
+        "communication_patterns": {
+          "avg_input_length": 17,
+          "input_length_variance": 50,
+          "question_ratio": 0.0,
+          "politeness_indicators": 0.5
+        },
+        "preference_indicators": {
+          "detail_preference": 0.0,
+          "urgent_queries": 0.0,
+          "follow_up_questions": 0.0
+        },
+        "interaction_frequency": {
+          "total_interactions": 2,
+          "avg_interaction_interval": 11.520972,
+          "rapid_interactions": 1
+        },
+        "topic_interests": {
+          "事业发展": 0.125,
+          "感情关系": 0.0,
+          "财富运势": 0.125,
+          "健康养生": 0.0,
+          "学习成长": 0.0,
+          "人际关系": 0.0,
+          "家庭生活": 0.0
+        },
+        "engagement_metrics": {
+          "response_rate": 1.0,
+          "session_length": 2,
+          "content_richness": 1,
+          "emotional_engagement": 1.0
+        },
+        "behavioral_insights": [
+          "用户沟通简洁直接，偏好快速获得答案",
+          "用户进行了简短的咨询，可能更偏好快速解答"
+        ]
+      },
+      "conversation_flow": {
+        "conversation_phases": [
+          {
+            "phase": "开场",
+            "start_index": 0,
+            "end_index": 0,
+            "duration": 1
+          },
+          {
+            "phase": "深入",
+            "start_index": 1,
+            "end_index": 1,
+            "duration": 1
+          }
+        ],
+        "flow_smoothness": 0.9057811494796506,
+        "topic_continuity": 0.0,
+        "interaction_rhythm": {
+          "rhythm_type": "rapid",
+          "rhythm_stability": "stable",
+          "avg_interval": 11.520972,
+          "interval_variance": 0,
+          "intervals": [
+            11.520972
+          ]
+        }
+      },
+      "insights_and_recommendations": [
+        "AI回复时间较长，建议优化响应速度以提升用户体验",
+        "对话涵盖多个话题，表现出用户的广泛兴趣，建议保持话题间的平衡",
+        "用户情感积极，建议保持当前的沟通方式和内容质量",
+        "用户沟通简洁直接，偏好快速获得答案",
+        "用户进行了简短的咨询，可能更偏好快速解答",
+        "对话流程流畅，用户与AI的交互自然顺畅"
+      ]
+    },
+    "session_summary": {
+      "session_info": {
+        "session_id": "session_memobase_20250826_111434_1cae24c3",
+        "framework_type": "memobase",
+        "total_interactions": 2,
+        "session_duration": 22.169257,
+        "user_profile": {
+          "user_id": "user_20250826_111434_8823",
+          "age_range": "55+",
+          "gender": "male",
+          "occupation": "人力资源",
+          "location": "北京",
+          "relationship_status": "离异",
+          "previous_sessions": 0,
+          "personality_traits": [
+            "实用主义",
+            "目标导向",
+            "效率优先",
+            "务实",
+            "友善",
+            "好奇"
+          ],
+          "concerns": [
+            "个人成长",
+            "家庭矛盾"
+          ],
+          "goals": [
+            "找到真爱",
+            "健康生活"
+          ]
+        }
+      },
+      "performance_metrics": {
+        "avg_response_time": 11.082525610923767,
+        "total_response_time": 22.165051221847534,
+        "token_usage": {
+          "input_tokens": 1113,
+          "output_tokens": 946,
+          "total_tokens": 2059
+        }
+      },
+      "memory_utilization": {
+        "memory_used_count": 1,
+        "memory_usage_rate": 0.5
+      },
+      "responses": [
+        {
+          "response_id": "resp_session_memobase_20250826_111434_1cae24c3_0_1756178085",
+          "session_id": "session_memobase_20250826_111434_1cae24c3",
+          "user_input": "我想知道什么时候换工作比较好（我是人力资源）",
+          "ai_response": "您好！作为一位从事人力资源工作的朋友，我能感受到您对职业发展的深思熟虑。\n\n从命理角度来看，人力资源工作属于\"人和\"之业，需要良好的人际关系和沟通能力。结合您实用主义和目标导向的性格，这确实是很适合的职业选择。\n\n关于换工作的最佳时机，我建议从以下几个维度考虑：\n\n**时间节点分析：**\n- **春季（3-5月）**：万物复苏，新的机会较多，是求职的传统旺季\n- **秋季（9-11月）**：收获季节，企业预算规划期，职位需求相对稳定\n\n**个人发展考量：**\n1. **技能积累期**：建议在当前岗位至少工作2-3年，充分掌握HR各模块经验\n2. **人脉建设**：利用您友善的性格优势，在行业内建立更广泛的联系网络\n3. **专业提升**：考虑获得相关资格证书，如人力资源管理师等\n\n**具体建议：**\n鉴于您目前还关注家庭矛盾问题，建议先处理好家庭关系，稳定后端再考虑职业变动。毕竟家和万事兴，内心平静才能在职场上发挥最佳状态。\n\n您目前在HR领域工作多久了？具体想往哪个方向发展呢？",
+          "response_time": 10.64436936378479,
+          "token_usage": {
+            "input_tokens": 328,
+            "output_tokens": 450
+          },
+          "memory_context": {},
+          "metadata": {
+            "framework_type": "memobase",
+            "ai_provider": "claude",
+            "model": "claude-sonnet-4-20250514",
+            "has_memory_context": false
+          },
+          "timestamp": "2025-08-26T11:14:45.416489"
+        },
+        {
+          "response_id": "resp_session_memobase_20250826_111434_1cae24c3_1_1756178096",
+          "session_id": "session_memobase_20250826_111434_1cae24c3",
+          "user_input": "请告诉我如何改善我的财运",
+          "ai_response": "根据您从事人力资源工作的情况，我来为您分析财运改善之道。\n\n**职业财运分析：**\nHR行业属于\"土\"性工作，主管人事调配，具有稳定的财运基础。您实用主义和效率优先的特质，很适合在这个领域积累财富。\n\n**财运提升建议：**\n\n**1. 专业深耕（根本之道）**\n- 深化HR专业技能，向HRBP、薪酬设计等高价值模块发展\n- 考取高级人力资源管理师证书，提升市场价值\n- 学习数据分析，成为懂业务的HR专家\n\n**2. 人脉经营（贵人助力）**\n- 利用您友善的性格，在行业内建立广泛人脉\n- 参加HR沙龙、行业会议，扩展职业圈子\n- 维护与猎头的良好关系\n\n**3. 理财规划（开源节流）**\n- 建立\"334\"理财结构：30%稳健投资、30%成长投资、40%生活开支\n- 考虑定投基金，符合您务实的性格\n- 学习财务知识，为将来创业或投资做准备\n\n**4. 时机把握**\n- 年底是HR跳槽涨薪的最佳时期\n- 关注公司上市、并购等机会，争取股权激励\n\n**风水建议：**\n办公桌左侧放置绿植（招财），保持桌面整洁（聚气）。\n\n您目前的薪资水平如何？有没有考虑过向管理层发展或者自主创业？",
+          "response_time": 11.520681858062744,
+          "token_usage": {
+            "input_tokens": 785,
+            "output_tokens": 496
+          },
+          "memory_context": {
+            "conversation_history": [
+              {
+                "user": "我想知道什么时候换工作比较好（我是人力资源）",
+                "assistant": "您好！作为一位从事人力资源工作的朋友，我能感受到您对职业发展的深思熟虑。\n\n从命理角度来看，人力资源工作属于\"人和\"之业，需要良好的人际关系和沟通能力。结合您实用主义和目标导向的性格，这确实是很适合的职业选择。\n\n关于换工作的最佳时机，我建议从以下几个维度考虑：\n\n**时间节点分析：**\n- **春季（3-5月）**：万物复苏，新的机会较多，是求职的传统旺季\n- **秋季（9-11月）**：收获季..."
+              }
+            ],
+            "user_preferences": {
+              "prefers_detailed_analysis": false,
+              "communication_style": "direct",
+              "areas_of_interest": [
+                "事业发展",
+                "人际关系",
+                "财运分析"
+              ]
+            }
+          },
+          "metadata": {
+            "framework_type": "memobase",
+            "ai_provider": "claude",
+            "model": "claude-sonnet-4-20250514",
+            "has_memory_context": true
+          },
+          "timestamp": "2025-08-26T11:14:56.937461"
+        }
+      ]
+    }
+  },
+  "end_time": "2025-08-26T11:14:56.941355",
+  "success": true
+}

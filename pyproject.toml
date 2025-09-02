@@ -1,0 +1,89 @@
+[project]
+name = "ai-agent-tech"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-ai-generativelanguage>=0.6.18",
+    "google-genai>=1.30.0",
+    "langchain>=0.3.27",
+    "langchain-anthropic>=0.3.19",
+    "langchain-community>=0.3.27",
+    "langchain-google-genai>=2.1.9",
+    "langchain-google-vertexai>=2.0.28",
+    "langchain-mongodb>=0.6.2",
+    "langchain-openai>=0.3.28",
+    "langgraph>=0.6.4",
+    "langgraph-cli[inmem]>=0.3.6",
+    "memobase>=0.0.24",
+]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+skip = ["venv/"]
+skip_glob = ["migrations/**", "typings/**"]
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.pyright]
+ignore = [
+    "how_to_setup/**",
+    "**/__pypackages__/**/*.py",
+    "migrations/**",
+    "**/test*/**/*.py",
+    "**/tmp*/**",
+    "**/temp*/**",
+    "typings/**",
+]
+
+[tool.ruff]
+line-length = 120
+
+select = ["E", "F", "I", "UP", "C", "T", "Q"]
+ignore = ["C901", "E501"]
+
+# Exclude a variety of commonly ignored directories.
+extend-exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "how_to_setup/**",
+    "migrations/**",
+    "**/test*/**/*.py",
+    "**/tmp*/**",
+    "**/temp*/**",
+    "typings/**",
+]
+per-file-ignores = {}
+
+target-version = "py312"
+
+[tool.ruff.isort]
+extra-standard-library = ["typing_extensions"]
+
+[tool.ruff.pyupgrade]
+keep-runtime-typing = true
+

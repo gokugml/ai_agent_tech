@@ -1,0 +1,20 @@
+[project]
+name = "memory-comparison-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiohttp>=3.12.15",
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.5",
+    "memobase>=0.0.24",
+    "memu-py>=0.1.8",
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "python-dotenv>=1.1.1",
+]

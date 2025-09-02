@@ -1,0 +1,14 @@
+# 文件来源映射记录
+# 记录从auto_tools目录移动到deprecated目录的文件
+# 格式: 原路径 -> 新路径
+
+auto_tools/__init__.py -> deprecated/__init__.py
+auto_tools/dynamic_agent.py -> deprecated/dynamic_agent.py
+auto_tools/manus_pattern_implementation.py -> deprecated/manus_pattern_implementation.py
+auto_tools/test_dynamic_tools.py -> deprecated/test_dynamic_tools.py
+auto_tools/test_real_llm_integration.py -> deprecated/test_real_llm_integration.py
+auto_tools/tool_selector.py -> deprecated/tool_selector.py
+auto_tools/tools.py -> deprecated/tools.py
+
+移动时间: 2025-08-15
+移动原因: 用户要求将auto_tools目录下的文件移动到废弃目录

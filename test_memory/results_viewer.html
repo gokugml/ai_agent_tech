@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增强版记忆系统评测结果可视化</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .meta {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+        }
+
+        .metric-label {
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+
+        .winner {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px 25px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .tab:not(.active):hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .method-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .method-score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .scenario-matrix {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .matrix-table th,
+        .matrix-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .matrix-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+        }
+
+        .score-cell {
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 2px;
+            padding: 5px;
+        }
+
+        .score-excellent { background: #28a745; color: white; }
+        .score-good { background: #17a2b8; color: white; }
+        .score-average { background: #ffc107; color: #333; }
+        .score-poor { background: #dc3545; color: white; }
+
+        .analysis-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .layer-number {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .recommendation-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 增强版记忆系统评测结果</h1>
+            <div class="meta" id="meta-info">加载中...</div>
+        </div>
+
+        <div class="loading" id="loading">
+            正在加载评测数据...
+        </div>
+
+        <div id="main-content" style="display: none;">
+            <!-- 总览仪表板 -->
+            <div class="dashboard" id="dashboard">
+                <!-- 动态生成 -->
+            </div>
+
+            <!-- 标签页导航 -->
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('overview')">📊 综合对比</div>
+                <div class="tab" onclick="switchTab('methods')">🔧 方法分析</div>
+                <div class="tab" onclick="switchTab('scenarios')">🎯 场景适配</div>
+                <div class="tab" onclick="switchTab('analysis')">📈 深度分析</div>
+            </div>
+
+            <!-- 综合对比 -->
+            <div class="tab-content active" id="overview">
+                <div class="chart-container">
+                    <h3>🏆 整体性能对比</h3>
+                    <canvas id="overallChart" width="400" height="200"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>📊 核心方法对比</h3>
+                    <canvas id="coreMethodChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- 方法分析 -->
+            <div class="tab-content" id="methods">
+                <div class="analysis-section">
+                    <h3>🔍 MemoBase 方法表现</h3>
+                    <div class="methods-grid" id="memobase-methods">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+                
+                <div class="analysis-section">
+                    <h3>⚡ Memu 方法表现</h3>
+                    <div class="methods-grid" id="memu-methods">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>📈 专用方法排名</h3>
+                    <canvas id="specializedChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- 场景适配 -->
+            <div class="tab-content" id="scenarios">
+                <div class="analysis-section">
+                    <h3>🎲 场景-方法适配矩阵</h3>
+                    <div class="scenario-matrix">
+                        <table class="matrix-table" id="scenario-matrix-table">
+                            <!-- 动态生成 -->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>🎯 各场景最佳方法推荐</h3>
+                    <canvas id="scenarioChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- 深度分析 -->
+            <div class="tab-content" id="analysis">
+                <div class="analysis-section">
+                    <div class="layer-header">
+                        <div class="layer-number">1</div>
+                        <div>
+                            <h3>核心方法对比</h3>
+                            <p>Context vs Memory Items 通用召回能力</p>
+                        </div>
+                    </div>
+                    <div id="layer1-content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="analysis-section">
+                    <div class="layer-header">
+                        <div class="layer-number">2</div>
+                        <div>
+                            <h3>专用方法评估</h3>
+                            <p>各独有方法的场景适配度分析</p>
+                        </div>
+                    </div>
+                    <div id="layer2-content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="analysis-section">
+                    <div class="layer-header">
+                        <div class="layer-number">3</div>
+                        <div>
+                            <h3>场景-方法矩阵</h3>
+                            <p>6种方法×7个场景的完整适配分析</p>
+                        </div>
+                    </div>
+                    <div id="layer3-content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="analysis-section">
+                    <div class="layer-header">
+                        <div class="layer-number">4</div>
+                        <div>
+                            <h3>综合框架对比</h3>
+                            <p>整体架构优势和使用建议</p>
+                        </div>
+                    </div>
+                    <div id="layer4-content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h3>💡 使用建议和最佳实践</h3>
+                    <div id="recommendations-content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let evaluationData = null;
+
+        // 加载数据
+        async function loadData() {
+            try {
+                const response = await fetch('./enhanced_comparative_results.json');
+                evaluationData = await response.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                
+                renderDashboard();
+                renderCharts();
+                renderMethods();
+                renderScenarioMatrix();
+                renderAnalysis();
+                
+            } catch (error) {
+                document.getElementById('loading').innerHTML = 
+                    '<div class="error">❌ 无法加载数据: ' + error.message + '</div>';
+            }
+        }
+
+        // 渲染仪表板
+        function renderDashboard() {
+            const data = evaluationData;
+            const metaInfo = document.getElementById('meta-info');
+            const dashboard = document.getElementById('dashboard');
+            
+            // 更新元信息
+            metaInfo.innerHTML = `
+                评测时间: ${new Date(data.evaluation_timestamp).toLocaleString('zh-CN')} | 
+                框架: ${data.frameworks_compared.join(' vs ')} | 
+                测试用例: ${data.summary.memobase_overall > 0 ? '21个场景' : '计算中...'}
+            `;
+
+            // 生成仪表板卡片
+            const cards = [
+                {
+                    title: '🏆 综合性能冠军',
+                    content: `<div class="winner">${data.summary.winner}</div>
+                             <div class="metric-row">
+                                <span class="metric-label">MemoBase</span>
+                                <span class="metric-value">${data.summary.memobase_overall.toFixed(2)}/10</span>
+                             </div>
+                             <div class="metric-row">
+                                <span class="metric-label">Memu</span>
+                                <span class="metric-value">${data.summary.memu_overall.toFixed(2)}/10</span>
+                             </div>`
+                },
+                {
+                    title: '🎯 核心方法对比',
+                    content: `<div class="winner">${data.analysis.core_method_comparison.winner}</div>
+                             <div class="metric-row">
+                                <span class="metric-label">性能差异</span>
+                                <span class="metric-value">${data.analysis.core_method_comparison.performance_difference.toFixed(2)}分</span>
+                             </div>
+                             <div class="metric-row">
+                                <span class="metric-label">优势程度</span>
+                                <span class="metric-value">${data.analysis.core_method_comparison.advantage_percentage.toFixed(1)}%</span>
+                             </div>`
+                },
+                {
+                    title: '🥇 最佳专用方法',
+                    content: `<div class="winner">${data.analysis.specialized_method_analysis.best_specialized_method[0]}</div>
+                             <div class="metric-row">
+                                <span class="metric-label">得分</span>
+                                <span class="metric-value">${data.analysis.specialized_method_analysis.best_specialized_method[1].toFixed(2)}/10</span>
+                             </div>`
+                },
+                {
+                    title: '📊 测试覆盖度',
+                    content: `<div class="metric-row">
+                                <span class="metric-label">MemoBase方法</span>
+                                <span class="metric-value">${data.methods_tested.memobase.length}种</span>
+                             </div>
+                             <div class="metric-row">
+                                <span class="metric-label">Memu方法</span>
+                                <span class="metric-value">${data.methods_tested.memu.length}种</span>
+                             </div>
+                             <div class="metric-row">
+                                <span class="metric-label">测试场景</span>
+                                <span class="metric-value">${Object.keys(data.analysis.scenario_method_matrix).length}个</span>
+                             </div>`
+                }
+            ];
+
+            dashboard.innerHTML = cards.map(card => `
+                <div class="card">
+                    <h3>${card.title}</h3>
+                    ${card.content}
+                </div>
+            `).join('');
+        }
+
+        // 渲染图表
+        function renderCharts() {
+            renderOverallChart();
+            renderCoreMethodChart();
+            renderSpecializedChart();
+            renderScenarioChart();
+        }
+
+        function renderOverallChart() {
+            const ctx = document.getElementById('overallChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['MemoBase', 'Memu'],
+                    datasets: [{
+                        label: '综合得分',
+                        data: [
+                            evaluationData.summary.memobase_overall,
+                            evaluationData.summary.memu_overall
+                        ],
+                        backgroundColor: ['#667eea', '#764ba2'],
+                        borderWidth: 0,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 10,
+                            grid: { color: 'rgba(0,0,0,0.1)' }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderCoreMethodChart() {
+            const ctx = document.getElementById('coreMethodChart').getContext('2d');
+            const coreData = evaluationData.analysis.core_method_comparison;
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['MemoBase Context', 'Memu Memory Items'],
+                    datasets: [{
+                        data: [
+                            coreData.memobase_context_score,
+                            coreData.memu_memory_items_score
+                        ],
+                        backgroundColor: ['#667eea', '#764ba2'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        function renderSpecializedChart() {
+            const ctx = document.getElementById('specializedChart').getContext('2d');
+            const ranking = evaluationData.analysis.specialized_method_analysis.specialized_method_ranking;
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ranking.map(item => item[0]),
+                    datasets: [{
+                        label: '专用方法得分',
+                        data: ranking.map(item => item[1]),
+                        backgroundColor: [
+                            '#28a745', '#17a2b8', '#ffc107', '#fd7e14'
+                        ],
+                        borderWidth: 0,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderScenarioChart() {
+            const ctx = document.getElementById('scenarioChart').getContext('2d');
+            const matrix = evaluationData.analysis.scenario_method_matrix;
+            
+            const scenarios = Object.keys(matrix);
+            const datasets = [
+                {
+                    label: 'MemoBase Context',
+                    data: scenarios.map(s => matrix[s].memobase_context),
+                    backgroundColor: '#667eea'
+                },
+                {
+                    label: 'Memu Memory Items',
+                    data: scenarios.map(s => matrix[s].memu_memory_items),
+                    backgroundColor: '#764ba2'
+                }
+            ];
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: scenarios.map(s => s.split('（')[0]),
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 10
+                        }
+                    }
+                }
+            });
+        }
+
+        // 渲染方法分析
+        function renderMethods() {
+            const memobaseData = evaluationData.raw_results.memobase_results;
+            const memuData = evaluationData.raw_results.memu_results;
+
+            // MemoBase方法
+            const memobaseMethods = document.getElementById('memobase-methods');
+            memobaseMethods.innerHTML = `
+                <div class="method-card">
+                    <div class="method-name">Context (通用核心)</div>
+                    <div class="method-score">${memobaseData.overall_context_avg.toFixed(2)}/10</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-name">Profile (用户属性)</div>
+                    <div class="method-score">${memobaseData.overall_profile_avg.toFixed(2)}/10</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-name">Search Event (事件时间线)</div>
+                    <div class="method-score">${memobaseData.overall_search_event_avg.toFixed(2)}/10</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-name">Search Event Gist (精确事实)</div>
+                    <div class="method-score">${memobaseData.overall_search_event_gist_avg.toFixed(2)}/10</div>
+                </div>
+            `;
+
+            // Memu方法
+            const memuMethods = document.getElementById('memu-methods');
+            memuMethods.innerHTML = `
+                <div class="method-card">
+                    <div class="method-name">Memory Items (通用核心)</div>
+                    <div class="method-score">${memuData.overall_memory_items_avg.toFixed(2)}/10</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-name">Clustered Categories (语义聚类)</div>
+                    <div class="method-score">${memuData.overall_clustered_avg.toFixed(2)}/10</div>
+                </div>
+            `;
+        }
+
+        // 渲染场景矩阵
+        function renderScenarioMatrix() {
+            const matrix = evaluationData.analysis.scenario_method_matrix;
+            const table = document.getElementById('scenario-matrix-table');
+            
+            const scenarios = Object.keys(matrix);
+            const methods = ['memobase_context', 'memobase_profile', 'memobase_search_event', 
+                           'memobase_search_event_gist', 'memu_memory_items', 'memu_clustered'];
+            const methodNames = ['MB-Context', 'MB-Profile', 'MB-Event', 'MB-Gist', 'MU-Memory', 'MU-Cluster'];
+
+            let html = '<thead><tr><th>场景</th>';
+            methodNames.forEach(name => {
+                html += `<th>${name}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+
+            scenarios.forEach(scenario => {
+                const shortName = scenario.split('（')[0];
+                html += `<tr><td><strong>${shortName}</strong></td>`;
+                
+                methods.forEach(method => {
+                    const score = matrix[scenario][method] || 0;
+                    const cellClass = getScoreClass(score);
+                    html += `<td><span class="score-cell ${cellClass}">${score.toFixed(1)}</span></td>`;
+                });
+                html += '</tr>';
+            });
+
+            html += '</tbody>';
+            table.innerHTML = html;
+        }
+
+        function getScoreClass(score) {
+            if (score >= 8) return 'score-excellent';
+            if (score >= 6) return 'score-good';
+            if (score >= 4) return 'score-average';
+            return 'score-poor';
+        }
+
+        // 渲染深度分析
+        function renderAnalysis() {
+            renderLayer1();
+            renderLayer2();
+            renderLayer3();
+            renderLayer4();
+            renderRecommendations();
+        }
+
+        function renderLayer1() {
+            const analysis = evaluationData.analysis.core_method_comparison;
+            const content = document.getElementById('layer1-content');
+            
+            content.innerHTML = `
+                <div class="metric-row">
+                    <span class="metric-label">MemoBase Context得分</span>
+                    <span class="metric-value">${analysis.memobase_context_score.toFixed(2)}/10</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Memu Memory Items得分</span>
+                    <span class="metric-value">${analysis.memu_memory_items_score.toFixed(2)}/10</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">性能差异</span>
+                    <span class="metric-value">${analysis.performance_difference.toFixed(2)}分 (${analysis.advantage_percentage.toFixed(1)}%)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">🏆 优胜者</span>
+                    <span class="winner">${analysis.winner}</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">差异程度</span>
+                    <span class="metric-value">${analysis.comparison_result === 'significant' ? '显著差异' : 
+                        analysis.comparison_result === 'moderate' ? '中等差异' : '性能相当'}</span>
+                </div>
+            `;
+        }
+
+        function renderLayer2() {
+            const analysis = evaluationData.analysis.specialized_method_analysis;
+            const content = document.getElementById('layer2-content');
+            
+            let html = '<h4>🏅 专用方法排名</h4>';
+            analysis.specialized_method_ranking.forEach((item, index) => {
+                const [name, score] = item;
+                html += `
+                    <div class="metric-row">
+                        <span class="metric-label">${index + 1}. ${name}</span>
+                        <span class="metric-value">${score.toFixed(2)}/10</span>
+                    </div>
+                `;
+            });
+
+            if (analysis.best_specialized_method) {
+                const [bestName, bestScore] = analysis.best_specialized_method;
+                html += `
+                    <div class="metric-row">
+                        <span class="metric-label">🥇 最佳专用方法</span>
+                        <span class="winner">${bestName} (${bestScore.toFixed(2)}分)</span>
+                    </div>
+                `;
+            }
+
+            content.innerHTML = html;
+        }
+
+        function renderLayer3() {
+            const matrix = evaluationData.analysis.scenario_method_matrix;
+            const content = document.getElementById('layer3-content');
+            
+            let html = '<h4>🎯 各场景最佳方法推荐</h4>';
+            
+            Object.entries(matrix).forEach(([scenario, data]) => {
+                const shortName = scenario.split('（')[0];
+                
+                // 找出最佳方法
+                const methods = [
+                    ['MemoBase Context', data.memobase_context],
+                    ['MemoBase Profile', data.memobase_profile],
+                    ['MemoBase Search Event', data.memobase_search_event],
+                    ['MemoBase Search Event Gist', data.memobase_search_event_gist],
+                    ['Memu Memory Items', data.memu_memory_items],
+                    ['Memu Clustered Categories', data.memu_clustered]
+                ];
+                
+                const bestMethod = methods.reduce((best, current) => 
+                    current[1] > best[1] ? current : best
+                );
+                
+                html += `
+                    <div class="recommendation-item">
+                        <strong>${shortName}</strong>: ${bestMethod[0]} <span class="metric-value">(${bestMethod[1].toFixed(1)}分)</span>
+                    </div>
+                `;
+            });
+            
+            content.innerHTML = html;
+        }
+
+        function renderLayer4() {
+            const content = document.getElementById('layer4-content');
+            const memobaseOverall = evaluationData.summary.memobase_overall;
+            const memuOverall = evaluationData.summary.memu_overall;
+            
+            content.innerHTML = `
+                <div class="metric-row">
+                    <span class="metric-label">MemoBase综合得分</span>
+                    <span class="metric-value">${memobaseOverall.toFixed(2)}/10</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Memu综合得分</span>
+                    <span class="metric-value">${memuOverall.toFixed(2)}/10</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">🏆 综合性能优胜</span>
+                    <span class="winner">${evaluationData.summary.winner}</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">综合优势</span>
+                    <span class="metric-value">${Math.abs(memobaseOverall - memuOverall).toFixed(2)}分 (${(Math.abs(memobaseOverall - memuOverall) / 10 * 100).toFixed(1)}%)</span>
+                </div>
+            `;
+        }
+
+        function renderRecommendations() {
+            const content = document.getElementById('recommendations-content');
+            const coreAnalysis = evaluationData.analysis.core_method_comparison;
+            const specializedAnalysis = evaluationData.analysis.specialized_method_analysis;
+            
+            let html = '';
+
+            // 核心推荐
+            if (coreAnalysis.comparison_result === 'significant') {
+                if (coreAnalysis.memobase_context_score > coreAnalysis.memu_memory_items_score) {
+                    html += '<div class="recommendation-item">✅ <strong>核心推荐</strong>: MemoBase的Context方法在通用记忆召回上有显著优势</div>';
+                } else {
+                    html += '<div class="recommendation-item">✅ <strong>核心推荐</strong>: Memu的Memory Items方法在通用记忆召回上有显著优势</div>';
+                }
+            } else {
+                html += '<div class="recommendation-item">🤝 <strong>核心推荐</strong>: 两个框架的通用召回能力相近，可根据其他因素选择</div>';
+            }
+
+            // 专用功能推荐
+            if (specializedAnalysis.best_specialized_method) {
+                const [bestMethod, bestScore] = specializedAnalysis.best_specialized_method;
+                html += `<div class="recommendation-item">🎯 <strong>专用功能推荐</strong>: ${bestMethod} 在专用检索场景表现最佳 (${bestScore.toFixed(2)}分)</div>`;
+            }
+
+            // 框架特点
+            html += `
+                <div class="recommendation-item">
+                    <strong>🔍 MemoBase优势</strong>:
+                    <ul>
+                        <li>方法丰富(4种)，可针对不同场景选择最优方法</li>
+                        <li>Profile检索特别适合用户属性跟踪</li>
+                        <li>Event系列检索适合时间线和事实查询</li>
+                    </ul>
+                </div>
+                <div class="recommendation-item">
+                    <strong>⚡ Memu优势</strong>:
+                    <ul>
+                        <li>简洁高效(2种方法)，降低选择复杂度</li>
+                        <li>Memory Items提供稳定的通用召回能力</li>
+                        <li>Clustered Categories适合语义相关性分析</li>
+                    </ul>
+                </div>
+            `;
+
+            content.innerHTML = html;
+        }
+
+        // 切换标签页
+        function switchTab(tabName) {
+            // 移除所有活跃状态
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // 添加活跃状态
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

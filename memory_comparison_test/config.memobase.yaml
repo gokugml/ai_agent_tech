@@ -1,0 +1,67 @@
+# Memobase 配置文件
+# 基于 profile_for_assistant 示例配置
+
+# LLM 配置
+llm_base_url: "https://one-api.boolv.tech/v1"
+llm_api_key: "sk-Qf51veEOBGOU9OgFB2C9B632CdAb49F492Bc78A8Bf9cFb19"
+best_llm_model: "gpt-4o-mini"
+
+# Embedding 配置
+enable_event_embedding: true
+embedding_api_key: "sk-Qf51veEOBGOU9OgFB2C9B632CdAb49F492Bc78A8Bf9cFb19"
+embedding_base_url: "https://one-api.boolv.tech/v1"
+embedding_model: "text-embedding-ada-002"
+
+# Memory 配置
+max_pre_profile_token_size: 1000
+max_profile_subtopics: 20
+
+# 用户档案配置 - 修正格式
+additional_user_profiles:
+  - topic: "chat_style"
+    description: "用户聊天风格偏好"
+    sub_topics:
+      - name: "communication_preference"
+        description: "沟通偏好方式"
+      - name: "response_length"
+        description: "回应长度偏好"
+      - name: "formality_level"
+        description: "正式程度偏好"
+      - name: "technical_detail"
+        description: "技术细节偏好"
+    
+  - topic: "memory_test_context"
+    description: "记忆框架测试上下文"
+    sub_topics:
+      - name: "test_scenario"
+        description: "当前测试场景"
+      - name: "interaction_history"
+        description: "互动历史记录"
+      - name: "performance_metrics"
+        description: "性能指标记录"
+      - name: "comparison_notes"
+        description: "对比测试笔记"
+  
+  - topic: "personal_info"
+    description: "个人基本信息"
+    sub_topics:
+      - name: "life_events"
+        description: "重要生活事件"
+      - name: "interests"
+        description: "兴趣爱好"
+      - name: "goals"
+        description: "目标规划"
+      - name: "preferences"
+        description: "个人偏好"
+
+# 事件配置
+enable_event_tag: true
+event_tags:
+  - "conversation"
+  - "divination"
+  - "feedback"
+  - "style_learning"
+
+# 高级配置
+max_token_size: 4000
+context_window_size: 8000

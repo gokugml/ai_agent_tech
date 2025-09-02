@@ -1,0 +1,9 @@
+{
+  "graphs": {
+    "chatbot_memu": {
+      "path": "./main.py:graph",
+      "description": "最小化聊天机器人，支持MemU记忆召回和存储"
+    }
+  },
+  "env": "../.env"
+}

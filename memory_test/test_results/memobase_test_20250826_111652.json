@@ -1,0 +1,413 @@
+{
+  "framework": "memobase",
+  "scenario": "follow_up_session",
+  "input_count": 3,
+  "start_time": "2025-08-26T11:16:19.942032",
+  "test_results": {
+    "responses": [
+      {
+        "user_input": "我很期待，上次您说的事情真的发生了！",
+        "ai_response": "您好！很高兴听到您的反馈，不过这是我们第一次交流，我并没有之前为您做过预测呢。\n\n作为一名专业的算命师，我深知每一次咨询都需要准确的信息作为基础。可能您是想起了其他师傅的预测，或者是对某些征象的感应？\n\n既然您提到有事情应验了，这说明您对玄学有一定的敏感度，这是很好的天赋。不妨告诉我：\n\n1. 您的出生年月日时（农历更佳）\n2. 您是男性还是女性\n3. 最近让您印象深刻的那件\"应验\"的事情是什么\n\n根据您的性格特征，我能感受到您是一个开放乐观的人，对新事物充满好奇。在养生保健和事业发展方面，相信通过八字命理分析，能为您提供更精准的指导。\n\n请提供基本信息，我将为您进行详细的命理分析。",
+        "response_time": 13.276851892471313,
+        "timestamp": "2025-08-26T11:16:33.251666"
+      },
+      {
+        "user_input": "我很期待，上次的预测有些准确，但有些没发生",
+        "ai_response": "感谢您的信任！不过我需要澄清一下，这确实是我们的首次交流。您提到的上次预测应该是其他师傅为您做的分析。\n\n作为专业的命理师，我认为预测的准确性往往与以下几个因素相关：\n\n**影响预测准确度的因素：**\n1. **时间信息的精确性** - 出生时辰是否准确\n2. **个人行为选择** - 人的主观能动性会影响运势走向\n3. **环境变化** - 外在条件的改变\n4. **解读角度** - 不同师傅的理论体系和经验深度\n\n既然您说有些准确有些没发生，这很正常。命理学讲究\"三分天注定，七分靠打拼\"，预测更多是提供趋势参考和决策建议。\n\n考虑到您关注养生保健和跳槽机会，我建议：\n\n**现在可以为您做的：**\n- 重新进行完整的八字分析\n- 结合当前流年运势\n- 针对您的具体关注点给出建议\n\n请提供您的出生年月日时和性别，让我为您做一次全新的、更精准的命理分析。这样我们就有了可靠的基础来探讨您的人生走向。",
+        "response_time": 19.28908085823059,
+        "timestamp": "2025-08-26T11:16:52.540884"
+      },
+      {
+        "user_input": "我很期待，我按照您的建议做了，现在想看看接下来怎么办",
+        "ai_response": "抱歉，回复生成时出现了问题：slice(-3, None, None)",
+        "response_time": 5.078315734863281e-05,
+        "timestamp": "2025-08-26T11:16:52.541131"
+      }
+    ],
+    "quality_evaluation": {
+      "overall_score": 0.44507575757575757,
+      "conversation_flow_score": 0.0,
+      "memory_utilization_score": 0.43333333333333335,
+      "user_satisfaction_estimate": 0.5481942072237527
+    },
+    "conversation_analysis": {
+      "conversation_id": "session_memobase_20250826_111619_faabac50",
+      "basic_metrics": {
+        "total_interactions": 3,
+        "conversation_duration_seconds": 19.289465,
+        "avg_response_time": 10.855327844619751,
+        "total_response_time": 32.56598353385925,
+        "avg_interaction_interval": 9.6447325,
+        "token_usage": {
+          "total_input_tokens": 963,
+          "total_output_tokens": 703,
+          "total_tokens": 1666,
+          "avg_input_tokens": 321.0,
+          "avg_output_tokens": 234.33333333333334
+        },
+        "content_metrics": {
+          "avg_response_length": 244.33333333333334,
+          "avg_user_input_length": 21.666666666666668,
+          "response_length_variance": 35781.333333333336,
+          "max_response_length": 403,
+          "min_response_length": 35
+        }
+      },
+      "topic_analysis": {
+        "topic_distribution": {
+          "其他": 0.5,
+          "事业发展": 0.25,
+          "健康养生": 0.25
+        },
+        "main_topics": [
+          [
+            "其他",
+            0.5
+          ],
+          [
+            "事业发展",
+            0.25
+          ],
+          [
+            "健康养生",
+            0.25
+          ]
+        ],
+        "topic_transitions": [],
+        "topic_diversity": 3,
+        "topic_focus_score": 0.5,
+        "conversation_coherence": 1.0
+      },
+      "emotion_analysis": {
+        "emotion_distribution": {
+          "积极": 1.0
+        },
+        "emotion_progression": [
+          {
+            "interaction_index": 0,
+            "user_emotion": "积极",
+            "ai_emotion": "积极",
+            "timestamp": "2025-08-26T11:16:33.251666"
+          },
+          {
+            "interaction_index": 1,
+            "user_emotion": "积极",
+            "ai_emotion": "积极",
+            "timestamp": "2025-08-26T11:16:52.540884"
+          },
+          {
+            "interaction_index": 2,
+            "user_emotion": "积极",
+            "ai_emotion": "中性",
+            "timestamp": "2025-08-26T11:16:52.541131"
+          }
+        ],
+        "emotion_trend": {
+          "trend": "stable",
+          "slope": 0.0,
+          "confidence": 0.0
+        },
+        "dominant_emotion": "积极",
+        "emotional_stability": 1.0
+      },
+      "interaction_patterns": {
+        "pattern_distribution": {
+          "探索型": 0.6666666666666666,
+          "求助型": 0.3333333333333333
+        },
+        "pattern_sequence": [
+          {
+            "interaction_index": 0,
+            "pattern": "探索型",
+            "user_input_length": 18,
+            "ai_response_length": 295
+          },
+          {
+            "interaction_index": 1,
+            "pattern": "探索型",
+            "user_input_length": 21,
+            "ai_response_length": 403
+          },
+          {
+            "interaction_index": 2,
+            "pattern": "求助型",
+            "user_input_length": 26,
+            "ai_response_length": 35
+          }
+        ],
+        "pattern_transitions": [
+          {
+            "from_pattern": "探索型",
+            "to_pattern": "求助型",
+            "interaction_index": 2
+          }
+        ],
+        "dominant_pattern": "探索型",
+        "pattern_consistency": 0.6666666666666666
+      },
+      "memory_usage_analysis": {
+        "usage_statistics": {
+          "total_responses": 3,
+          "responses_with_memory": 2,
+          "avg_memory_context_size": 2.5,
+          "memory_utilization_rate": 0.6666666666666666,
+          "memory_effectiveness_scores": [
+            0.3,
+            0.0
+          ],
+          "avg_memory_effectiveness": 0.15
+        },
+        "memory_contexts": [
+          {
+            "response_id": "resp_session_memobase_20250826_111619_faabac50_0_1756178193",
+            "has_memory": false,
+            "context_size": 0,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111619_faabac50_1_1756178212",
+            "has_memory": true,
+            "context_size": 2,
+            "effectiveness_score": 0.3,
+            "memory_types": []
+          },
+          {
+            "response_id": "error_session_memobase_20250826_111619_faabac50_1756178212",
+            "has_memory": true,
+            "context_size": 3,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          }
+        ],
+        "memory_trends": {
+          "memory_usage_trend": {
+            "trend": "stable",
+            "confidence": 0.0
+          },
+          "context_size_trend": {
+            "trend": "increasing",
+            "slope": 1.5,
+            "confidence": 1.0
+          },
+          "effectiveness_trend": {
+            "trend": "stable",
+            "confidence": 0.0
+          }
+        }
+      },
+      "quality_progression": {
+        "quality_scores": [
+          {
+            "response_id": "resp_session_memobase_20250826_111619_faabac50_0_1756178193",
+            "quality_score": 0.75,
+            "response_time": 13.276851892471313,
+            "timestamp": "2025-08-26T11:16:33.251666"
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111619_faabac50_1_1756178212",
+            "quality_score": 0.7999999999999999,
+            "response_time": 19.28908085823059,
+            "timestamp": "2025-08-26T11:16:52.540884"
+          },
+          {
+            "response_id": "error_session_memobase_20250826_111619_faabac50_1756178212",
+            "quality_score": 0.6,
+            "response_time": 5.078315734863281e-05,
+            "timestamp": "2025-08-26T11:16:52.541131"
+          }
+        ],
+        "quality_trend": {
+          "trend": "decreasing",
+          "slope": -0.07499999999999989,
+          "confidence": 0.5232558139534875
+        },
+        "response_time_trend": {
+          "trend": "decreasing",
+          "slope": -6.638400554656982,
+          "confidence": 1.0
+        },
+        "avg_quality": 0.7166666666666667,
+        "quality_variance": 0.01083333333333333,
+        "best_quality_score": 0.7999999999999999,
+        "worst_quality_score": 0.6
+      },
+      "user_behavior": {
+        "user_id": "session_memobase_20250826_111619_faabac50",
+        "communication_patterns": {
+          "avg_input_length": 21.666666666666668,
+          "input_length_variance": 16.333333333333332,
+          "question_ratio": 0.0,
+          "politeness_indicators": 0.6666666666666666
+        },
+        "preference_indicators": {
+          "detail_preference": 0.0,
+          "urgent_queries": 0.0,
+          "follow_up_questions": 0.0
+        },
+        "interaction_frequency": {
+          "total_interactions": 3,
+          "avg_interaction_interval": 9.644732500000002,
+          "rapid_interactions": 2
+        },
+        "topic_interests": {
+          "事业发展": 0.0,
+          "感情关系": 0.0,
+          "财富运势": 0.0,
+          "健康养生": 0.0,
+          "学习成长": 0.0,
+          "人际关系": 0.0,
+          "家庭生活": 0.0
+        },
+        "engagement_metrics": {
+          "response_rate": 1.0,
+          "session_length": 3,
+          "content_richness": 1,
+          "emotional_engagement": 1.0
+        },
+        "behavioral_insights": [
+          "用户沟通简洁直接，偏好快速获得答案"
+        ]
+      },
+      "conversation_flow": {
+        "conversation_phases": [
+          {
+            "phase": "开场",
+            "start_index": 0,
+            "end_index": 0,
+            "duration": 1
+          },
+          {
+            "phase": "验证",
+            "start_index": 1,
+            "end_index": 2,
+            "duration": 2
+          }
+        ],
+        "flow_smoothness": 0.30440891605452924,
+        "topic_continuity": 0.0,
+        "interaction_rhythm": {
+          "rhythm_type": "rapid",
+          "rhythm_stability": "variable",
+          "avg_interval": 9.644732500000002,
+          "interval_variance": 186.03220111942053,
+          "intervals": [
+            19.289218,
+            0.000247
+          ]
+        }
+      },
+      "insights_and_recommendations": [
+        "AI回复时间较长，建议优化响应速度以提升用户体验",
+        "用户情感积极，建议保持当前的沟通方式和内容质量",
+        "用户沟通简洁直接，偏好快速获得答案",
+        "对话流程存在不够流畅的地方，建议改善回复的一致性"
+      ]
+    },
+    "session_summary": {
+      "session_info": {
+        "session_id": "session_memobase_20250826_111619_faabac50",
+        "framework_type": "memobase",
+        "total_interactions": 2,
+        "session_duration": 32.571444,
+        "user_profile": {
+          "user_id": "user_20250826_111619_5759",
+          "age_range": "55+",
+          "gender": "male",
+          "occupation": "医生",
+          "location": "西安",
+          "relationship_status": "丧偶",
+          "previous_sessions": 3,
+          "personality_traits": [
+            "开放",
+            "信任",
+            "乐观",
+            "易受影响",
+            "好奇",
+            "积极"
+          ],
+          "concerns": [
+            "养生保健",
+            "跳槽机会"
+          ],
+          "goals": [
+            "个人成长",
+            "健康生活",
+            "职业突破"
+          ]
+        }
+      },
+      "performance_metrics": {
+        "avg_response_time": 16.282966375350952,
+        "total_response_time": 32.565932750701904,
+        "token_usage": {
+          "input_tokens": 963,
+          "output_tokens": 703,
+          "total_tokens": 1666
+        }
+      },
+      "memory_utilization": {
+        "memory_used_count": 1,
+        "memory_usage_rate": 0.5
+      },
+      "responses": [
+        {
+          "response_id": "resp_session_memobase_20250826_111619_faabac50_0_1756178193",
+          "session_id": "session_memobase_20250826_111619_faabac50",
+          "user_input": "我很期待，上次您说的事情真的发生了！",
+          "ai_response": "您好！很高兴听到您的反馈，不过这是我们第一次交流，我并没有之前为您做过预测呢。\n\n作为一名专业的算命师，我深知每一次咨询都需要准确的信息作为基础。可能您是想起了其他师傅的预测，或者是对某些征象的感应？\n\n既然您提到有事情应验了，这说明您对玄学有一定的敏感度，这是很好的天赋。不妨告诉我：\n\n1. 您的出生年月日时（农历更佳）\n2. 您是男性还是女性\n3. 最近让您印象深刻的那件\"应验\"的事情是什么\n\n根据您的性格特征，我能感受到您是一个开放乐观的人，对新事物充满好奇。在养生保健和事业发展方面，相信通过八字命理分析，能为您提供更精准的指导。\n\n请提供基本信息，我将为您进行详细的命理分析。",
+          "response_time": 13.276851892471313,
+          "token_usage": {
+            "input_tokens": 320,
+            "output_tokens": 308
+          },
+          "memory_context": {},
+          "metadata": {
+            "framework_type": "memobase",
+            "ai_provider": "claude",
+            "model": "claude-sonnet-4-20250514",
+            "has_memory_context": false
+          },
+          "timestamp": "2025-08-26T11:16:33.251666"
+        },
+        {
+          "response_id": "resp_session_memobase_20250826_111619_faabac50_1_1756178212",
+          "session_id": "session_memobase_20250826_111619_faabac50",
+          "user_input": "我很期待，上次的预测有些准确，但有些没发生",
+          "ai_response": "感谢您的信任！不过我需要澄清一下，这确实是我们的首次交流。您提到的上次预测应该是其他师傅为您做的分析。\n\n作为专业的命理师，我认为预测的准确性往往与以下几个因素相关：\n\n**影响预测准确度的因素：**\n1. **时间信息的精确性** - 出生时辰是否准确\n2. **个人行为选择** - 人的主观能动性会影响运势走向\n3. **环境变化** - 外在条件的改变\n4. **解读角度** - 不同师傅的理论体系和经验深度\n\n既然您说有些准确有些没发生，这很正常。命理学讲究\"三分天注定，七分靠打拼\"，预测更多是提供趋势参考和决策建议。\n\n考虑到您关注养生保健和跳槽机会，我建议：\n\n**现在可以为您做的：**\n- 重新进行完整的八字分析\n- 结合当前流年运势\n- 针对您的具体关注点给出建议\n\n请提供您的出生年月日时和性别，让我为您做一次全新的、更精准的命理分析。这样我们就有了可靠的基础来探讨您的人生走向。",
+          "response_time": 19.28908085823059,
+          "token_usage": {
+            "input_tokens": 643,
+            "output_tokens": 395
+          },
+          "memory_context": {
+            "conversation_history": [
+              {
+                "user": "我很期待，上次您说的事情真的发生了！",
+                "assistant": "您好！很高兴听到您的反馈，不过这是我们第一次交流，我并没有之前为您做过预测呢。\n\n作为一名专业的算命师，我深知每一次咨询都需要准确的信息作为基础。可能您是想起了其他师傅的预测，或者是对某些征象的感应？\n\n既然您提到有事情应验了，这说明您对玄学有一定的敏感度，这是很好的天赋。不妨告诉我：\n\n1. 您的出生年月日时（农历更佳）\n2. 您是男性还是女性\n3. 最近让您印象深刻的那件\"应验\"的事情是什么\n..."
+              }
+            ],
+            "user_preferences": {
+              "prefers_detailed_analysis": false,
+              "communication_style": "detailed",
+              "areas_of_interest": [
+                "事业发展",
+                "人际关系",
+                "财运分析"
+              ]
+            }
+          },
+          "metadata": {
+            "framework_type": "memobase",
+            "ai_provider": "claude",
+            "model": "claude-sonnet-4-20250514",
+            "has_memory_context": true
+          },
+          "timestamp": "2025-08-26T11:16:52.540884"
+        }
+      ]
+    }
+  },
+  "end_time": "2025-08-26T11:16:52.546230",
+  "success": true
+}

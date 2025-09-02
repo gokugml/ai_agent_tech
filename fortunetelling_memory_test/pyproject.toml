@@ -1,0 +1,88 @@
+[project]
+name = "fortunetelling-memory-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-anthropic>=0.3.19",
+    "langchain-mongodb>=0.7.0",
+    "langchain-openai>=0.3.31",
+    "langgraph>=0.6.6",
+    "langgraph-cli[inmem]>=0.3.8",
+    "loguru>=0.7.3",
+    "memobase>=0.0.24",
+    "memu-py>=0.1.8",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "python-dotenv>=1.1.1",
+]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+skip = ["venv/"]
+skip_glob = ["migrations/**", "typings/**"]
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.pyright]
+ignore = [
+    "how_to_setup/**",
+    "**/__pypackages__/**/*.py",
+    "migrations/**",
+    "**/test*/**/*.py",
+    "**/tmp*/**",
+    "**/temp*/**",
+    "typings/**",
+]
+
+[tool.ruff]
+line-length = 120
+
+select = ["E", "F", "I", "UP", "C", "T", "Q"]
+ignore = ["C901", "E501"]
+
+# Exclude a variety of commonly ignored directories.
+extend-exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "how_to_setup/**",
+    "migrations/**",
+    "**/test*/**/*.py",
+    "**/tmp*/**",
+    "**/temp*/**",
+    "typings/**",
+]
+per-file-ignores = {}
+
+target-version = "py312"
+
+[tool.ruff.isort]
+extra-standard-library = ["typing_extensions"]
+
+[tool.ruff.pyupgrade]
+keep-runtime-typing = true
+

@@ -1,0 +1,88 @@
+version: '3.8'
+
+# MemU 自托管环境配置
+# 用于启动 MemU 框架的依赖服务
+
+services:
+  # MemU 主服务
+  memu-server:
+    image: nevamind/memu:latest
+    container_name: memu_server
+    ports:
+      - "8080:8080"
+    environment:
+      # OpenAI API Key（MemU 需要用于记忆处理）
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-your_openai_key_here}
+      
+      # MemU 服务配置
+      - MEMU_PORT=8080
+      - MEMU_HOST=0.0.0.0
+      
+      # 数据存储路径
+      - MEMU_DATA_PATH=/app/data
+      
+      # 记忆处理配置
+      - MEMU_MEMORY_MODEL=gpt-3.5-turbo
+      - MEMU_EMBEDDING_MODEL=text-embedding-ada-002
+      
+      # 调试模式
+      - MEMU_DEBUG=${MEMU_DEBUG:-false}
+    
+    volumes:
+      # MemU 数据持久化
+      - memu_data:/app/data
+      - memu_logs:/app/logs
+    
+    networks:
+      - memory_test_network
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # MemU 配套的向量数据库（可选）
+  memu-vector-db:
+    image: qdrant/qdrant:latest
+    container_name: memu_vector_db
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    
+    volumes:
+      - memu_vector_data:/qdrant/storage
+    
+    networks:
+      - memory_test_network
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# 数据卷定义
+volumes:
+  memu_data:
+    driver: local
+    name: ${VOLUME_PREFIX:-memory_test}_memu_data
+  
+  memu_logs:
+    driver: local 
+    name: ${VOLUME_PREFIX:-memory_test}_memu_logs
+    
+  memu_vector_data:
+    driver: local
+    name: ${VOLUME_PREFIX:-memory_test}_memu_vector_data
+
+# 网络定义
+networks:
+  memory_test_network:
+    name: ${DOCKER_NETWORK_NAME:-memory_test_network}
+    driver: bridge

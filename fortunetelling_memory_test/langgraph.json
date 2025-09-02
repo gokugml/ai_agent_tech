@@ -1,0 +1,9 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "fortuneteller": "./main.py:graph",
+    "chatbot_memu": "./test_chatbot_memu/main.py:graph",
+    "chatbot_memu2": "./src/main.py:graph"
+  },
+  "env": ".env"
+}

@@ -1,0 +1,11 @@
+{
+    "dependencies": [
+        "."
+    ],
+    "graphs": {
+        "retention_error": "./retention_error/main.py:graph",
+        "subagent": "./subagent/main.py:graph",
+        "claude_chatbot": "./kv_cache/claude_chatbot.py:app"
+    },
+    "env": ".env"
+}

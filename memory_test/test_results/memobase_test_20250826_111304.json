@@ -1,0 +1,185 @@
+{
+  "framework": "memobase",
+  "scenario": "first_divination_basic",
+  "input_count": 2,
+  "start_time": "2025-08-26T11:12:44.192120",
+  "test_results": {
+    "responses": [
+      {
+        "user_input": "我想算一下我的运势",
+        "ai_response": "您好，很高兴为您提供运势咨询。\n\n要为您进行准确的运势分析，我需要了解一些基本信息：\n\n**请提供以下信息：**\n1. 您的出生年月日（农历或阳历都可以）\n2. 出生时辰（如果知道的话，会更准确）\n3. 性别\n4. 您希望了解哪方面的运势？比如：\n   - 整体运势\n   - 事业财运\n   - 感情婚姻\n   - 健康状况\n   - 人际关系\n\n根据您之前提到关注人际交往和同事关系，我会特别关注这些方面的分析。\n\n从您的性格特征来看，您是一个开放友善、容易与人相处的人，这在人际交往中是很大的优势。不过有时过于信任他人可能需要适当保持一些警觉。\n\n请先提供您的基本信息，我将为您进行详细的命理分析和运势预测。",
+        "response_time": 11.021718740463257,
+        "timestamp": "2025-08-26T11:12:55.242322"
+      },
+      {
+        "user_input": "听说算命很准，想试试看",
+        "ai_response": "我理解您的好奇心！算命作为中华传统文化的一部分，确实有其独特的智慧和参考价值。\n\n**关于算命的准确性，我想诚实地告诉您：**\n\n✨ **有参考价值的方面：**\n- 通过五行理论分析性格特点，往往比较贴合\n- 基于出生时间推算的大运流年，可以提供人生节奏的参考\n- 传统智慧中蕴含的人生哲理，对个人成长很有启发\n\n🤔 **需要理性看待：**\n- 命运并非完全固定，人的努力和选择同样重要\n- 算命更多是提供思路和建议，而非绝对的预言\n- 最终的人生还是掌握在自己手中\n\n**我的建议是：**\n以开放但理性的心态来体验，把算命当作：\n- 了解自己性格的一个角度\n- 人生规划的参考工具\n- 传统文化的学习体验\n\n您愿意分享您的出生信息吗？我会基于传统理论为您分析，同时给出实用的人生建议。记住，无论分析结果如何，您都有能力通过自己的努力创造美好的未来！",
+        "response_time": 9.717596769332886,
+        "timestamp": "2025-08-26T11:13:04.960052"
+      }
+    ],
+    "quality_evaluation": {
+      "overall_score": 0.43374999999999997,
+      "conversation_flow_score": 0.0,
+      "memory_utilization_score": 0.25,
+      "user_satisfaction_estimate": 0.6008208333333334
+    },
+    "conversation_analysis": {
+      "conversation_id": "session_memobase_20250826_111244_6a0bfd37",
+      "basic_metrics": {
+        "total_interactions": 2,
+        "conversation_duration_seconds": 9.71773,
+        "avg_response_time": 10.369657754898071,
+        "total_response_time": 20.739315509796143,
+        "avg_interaction_interval": 9.71773,
+        "token_usage": {
+          "total_input_tokens": 939,
+          "total_output_tokens": 685,
+          "total_tokens": 1624,
+          "avg_input_tokens": 469.5,
+          "avg_output_tokens": 342.5
+        },
+        "content_metrics": {
+          "avg_response_length": 341,
+          "avg_user_input_length": 10,
+          "response_length_variance": 2312,
+          "max_response_length": 375,
+          "min_response_length": 307
+        }
+      },
+      "topic_analysis": {
+        "topic_distribution": {
+          "其他": 0.25,
+          "事业发展": 0.125,
+          "感情关系": 0.125,
+          "财富运势": 0.125,
+          "健康养生": 0.125,
+          "人际关系": 0.125,
+          "学习成长": 0.125
+        },
+        "main_topics": [
+          [
+            "其他",
+            0.25
+          ],
+          [
+            "事业发展",
+            0.125
+          ],
+          [
+            "感情关系",
+            0.125
+          ]
+        ],
+        "topic_transitions": [],
+        "topic_diversity": 7,
+        "topic_focus_score": 0.25,
+        "conversation_coherence": 1.0
+      },
+      "emotion_analysis": {
+        "emotion_distribution": {
+          "中性": 1.0
+        },
+        "emotion_progression": [
+          {
+            "interaction_index": 0,
+            "user_emotion": "中性",
+            "ai_emotion": "中性",
+            "timestamp": "2025-08-26T11:12:55.242322"
+          },
+          {
+            "interaction_index": 1,
+            "user_emotion": "中性",
+            "ai_emotion": "积极",
+            "timestamp": "2025-08-26T11:13:04.960052"
+          }
+        ],
+        "emotion_trend": {
+          "trend": "stable",
+          "confidence": 0.5
+        },
+        "dominant_emotion": "中性",
+        "emotional_stability": 1.0
+      },
+      "interaction_patterns": {
+        "pattern_distribution": {
+          "探索型": 1.0
+        },
+        "pattern_sequence": [
+          {
+            "interaction_index": 0,
+            "pattern": "探索型",
+            "user_input_length": 9,
+            "ai_response_length": 307
+          },
+          {
+            "interaction_index": 1,
+            "pattern": "探索型",
+            "user_input_length": 11,
+            "ai_response_length": 375
+          }
+        ],
+        "pattern_transitions": [],
+        "dominant_pattern": "探索型",
+        "pattern_consistency": 1.0
+      },
+      "memory_usage_analysis": {
+        "usage_statistics": {
+          "total_responses": 2,
+          "responses_with_memory": 1,
+          "avg_memory_context_size": 2,
+          "memory_utilization_rate": 0.5,
+          "memory_effectiveness_scores": [
+            0.0
+          ],
+          "avg_memory_effectiveness": 0.0
+        },
+        "memory_contexts": [
+          {
+            "response_id": "resp_session_memobase_20250826_111244_6a0bfd37_0_1756177975",
+            "has_memory": false,
+            "context_size": 0,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111244_6a0bfd37_1_1756177984",
+            "has_memory": true,
+            "context_size": 2,
+            "effectiveness_score": 0.0,
+            "memory_types": []
+          }
+        ],
+        "memory_trends": {
+          "trend": "insufficient_data"
+        }
+      },
+      "quality_progression": {
+        "quality_scores": [
+          {
+            "response_id": "resp_session_memobase_20250826_111244_6a0bfd37_0_1756177975",
+            "quality_score": 0.65,
+            "response_time": 11.021718740463257,
+            "timestamp": "2025-08-26T11:12:55.242322"
+          },
+          {
+            "response_id": "resp_session_memobase_20250826_111244_6a0bfd37_1_1756177984",
+            "quality_score": 0.7,
+            "response_time": 9.717596769332886,
+            "timestamp": "2025-08-26T11:13:04.960052"
+          }
+        ],
+        "quality_trend": {
+          "trend": "stable",
+          "confidence": 0.0
+        },
+        "response_time_trend": {
+          "trend": "stable",
+          "confidence": 0.0
+        },
+        "avg_quality": 0.675,
+        "quality_variance": 0.0012499999999999968,
+        "best_quality_score": 0.7,
+        "worst_quality_score": 0.65
+      },
+      "user_behavior": 
